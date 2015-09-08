@@ -30,22 +30,25 @@ eventDispatcher = nil
 eventDispatcher=require("APUtils.EventDispatcher"):getInstance()
 eventDispatcher:dispatch("12_33","12_33 received!") -- 参数2可以为任何变量，包括table 
 
+APUtils.EventDispatcher:getInstance():dispatch("12_33","12_33 received!")
+
+
 提示：
 可以在 layer clearup方法中调用
 APUtils.EventDispatcher:destoryInstance() -- 销毁事件分发器 以取消之前的全部监听
 
 数据层次结构
 ["eventKey1"] =
-{
-["_StaticFunc"] = { func1, func2 },
+    {
+        ["_StaticFunc"] = { func1, func2 },
 
-[object1] = { func1, func2 },
-[object2] = { func1, func2 },
-},
+        [object1] = { func1, func2 },
+        [object2] = { func1, func2 },
+    },
 ["eventKey2"] =
-{
-...
-}
+        {
+    ...
+    }
 ]]
 local Global = _G
 local package = _G.package
